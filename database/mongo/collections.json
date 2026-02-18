@@ -1,0 +1,29 @@
+{
+  "collections": {
+    "accidentTelemetry": {
+      "indexes": [
+        { "key": { "incidentId": 1 }, "unique": true },
+        { "key": { "timestamp": -1 } },
+        { "key": { "location": "text", "severity": 1 } }
+      ],
+      "documentExample": {
+        "incidentId": "INC-8A1F09AD",
+        "timestamp": "2026-02-18T12:14:08.233Z",
+        "location": "NH-48 Junction A",
+        "model": "yolov5-custom + opencv-motion",
+        "severity": "High",
+        "survivalRate": 58,
+        "speedRisk": "Very High",
+        "damageClass": "Major Exterior Damage",
+        "detections": [
+          { "frame_idx": 215, "collision_score": 0.88, "objects": ["car", "truck"] }
+        ],
+        "actions": {
+          "authorityContact": "Traffic HQ",
+          "preventiveMeasures": "Speed camera enforcement",
+          "remedialMeasures": "Ambulance dispatched"
+        }
+      }
+    }
+  }
+}

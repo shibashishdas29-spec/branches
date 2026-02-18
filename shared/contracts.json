@@ -1,0 +1,22 @@
+{
+  "analyzeResponse": {
+    "report": {
+      "incidentId": "INC-XXXXXXXX",
+      "timestamp": "ISO_DATE",
+      "location": "string",
+      "simulationMode": "live-upload|historical",
+      "severity": "Critical|High|Moderate|Low",
+      "speedRisk": "Very High|High|Moderate|Low",
+      "damageClass": "string",
+      "survivalRate": 0,
+      "detections": [
+        {
+          "frame_idx": 0,
+          "collision_score": 0.0,
+          "objects": ["car"]
+        }
+      ],
+      "videoFilename": "string"
+    }
+  }
+}
