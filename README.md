@@ -51,3 +51,23 @@ Each module is separated in dedicated folders for easy API integration and deplo
 - `backend-python`
 - `database`
 - `shared`
+
+
+## Troubleshooting: "Page not found"
+
+If you open only `frontend/index.html` with a static file server, API URLs like `/api/reports` do not exist there and you may see a 404/Page not found.
+
+Use the integrated server instead:
+
+```bash
+cd backend-node
+npm install
+npm run dev
+```
+
+Then open:
+
+- App UI: `http://localhost:8080`
+- Health check: `http://localhost:8080/api/health`
+
+The frontend now automatically falls back to demo analytics if the backend API is unavailable, so the page still loads instead of breaking.

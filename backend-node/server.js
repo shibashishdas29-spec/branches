@@ -18,15 +18,27 @@ if (!fs.existsSync(uploadsDir)) fs.mkdirSync(uploadsDir, { recursive: true });
 app.use(cors());
 app.use(express.json({ limit: '2mb' }));
 app.use('/uploads', express.static(uploadsDir));
+
+app.get('/api/health', (_req, res) => {
+  res.json({ status: 'ok', message: 'Accident prevention API is running' });
+});
+
 app.use('/api/analyze', analyzeRouter);
 app.use('/api/alerts', alertsRouter);
 app.use('/api/reports', reportsRouter);
 app.use('/api/summary', summaryRouter);
 
+app.use('/api', (_req, res) => {
+  res.status(404).json({ error: 'API route not found' });
+});
+
 const frontendDir = path.join(__dirname, '..', 'frontend');
 app.use(express.static(frontendDir));
 
-app.get('*', (_req, res) => {
+app.get('*', (req, res) => {
+  if (req.path.startsWith('/api')) {
+    return res.status(404).json({ error: 'API route not found' });
+  }
   res.sendFile(path.join(frontendDir, 'index.html'));
 });
 
