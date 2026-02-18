@@ -1,0 +1,13 @@
+{
+  "database": "sentinelcrash",
+  "collections": {
+    "analyses": {
+      "description": "YOLO/OpenCV analysis records for uploaded footage",
+      "exampleIndexes": ["id", "dateTime", "severity.level", "location"]
+    },
+    "alerts": {
+      "description": "Authority alert dispatch logs and review summaries",
+      "exampleIndexes": ["analysisId", "authorityEmail", "dateTime"]
+    }
+  }
+}

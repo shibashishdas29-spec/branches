@@ -1,0 +1,16 @@
+[
+  {
+    "feedId": "SIM-CCTV-001",
+    "location": "MG Road Junction",
+    "description": "Two-wheeler skidding at wet intersection",
+    "severity": "Medium",
+    "suggestedMeasure": "Deploy anti-skid signage and adaptive signal timing"
+  },
+  {
+    "feedId": "SIM-CCTV-002",
+    "location": "Airport Flyover",
+    "description": "Rear-end collision under overspeed conditions",
+    "severity": "High",
+    "suggestedMeasure": "Enable speed camera enforcement + lane hazard beacons"
+  }
+]

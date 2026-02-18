@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SentinelCrash AI | Accident Prevention Suite</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="bg-orb orb-1"></div>
+    <div class="bg-orb orb-2"></div>
+    <header class="header">
+      <div>
+        <h1>SentinelCrash AI</h1>
+        <p>YOLOv5 + OpenCV Smart Accident Prevention Platform</p>
+      </div>
+      <button id="themeToggle" class="ghost-btn">Low-Light Mode</button>
+    </header>
+
+    <main>
+      <section class="section glass-card" id="detectionSection">
+        <div class="section-head">
+          <h2>Road CCTV Detection & Speed Alerts</h2>
+          <span class="badge">Live + Uploaded Feeds</span>
+        </div>
+        <div class="grid-2">
+          <form id="analyzeForm" class="stack">
+            <label for="videoInput">Upload CCTV / Dashcam Video</label>
+            <input id="videoInput" name="video" type="file" accept="video/*" required />
+
+            <label for="locationInput">Location (City, Road, GPS)</label>
+            <input id="locationInput" type="text" placeholder="e.g., NH-44, Bengaluru" required />
+
+            <label for="speedLimitInput">Road Speed Limit (km/h)</label>
+            <input id="speedLimitInput" type="number" min="10" max="180" value="60" required />
+
+            <label for="reportType">Report Source</label>
+            <select id="reportType">
+              <option value="cctv">CCTV Feed</option>
+              <option value="citizen">Citizen Report</option>
+              <option value="police">Traffic Police Report</option>
+            </select>
+
+            <button type="submit" class="primary-btn">Analyze Accident Risk</button>
+          </form>
+
+          <div class="stack">
+            <video id="previewVideo" controls playsinline></video>
+            <div class="status-grid">
+              <article>
+                <h3>Risk Status</h3>
+                <p id="riskStatus">Awaiting analysis...</p>
+              </article>
+              <article>
+                <h3>Detected Collision Objects</h3>
+                <p id="collisionObjects">-</p>
+              </article>
+              <article>
+                <h3>Estimated Severity</h3>
+                <p id="severityLabel">-</p>
+              </article>
+              <article>
+                <h3>Speed Alert</h3>
+                <p id="speedAlert">No active alerts.</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section glass-card" id="responseSection">
+        <div class="section-head">
+          <h2>Authority Alerting & Accident Review</h2>
+          <span class="badge">Automated Action Center</span>
+        </div>
+        <div class="grid-2">
+          <form id="authorityForm" class="stack">
+            <label for="authorityName">Authority Contact</label>
+            <input id="authorityName" type="text" placeholder="Traffic Control Command" required />
+
+            <label for="authorityEmail">Authority Email</label>
+            <input id="authorityEmail" type="email" placeholder="control@city.gov" required />
+
+            <label for="incidentNotes">Immediate Measures Taken</label>
+            <textarea id="incidentNotes" rows="4" placeholder="Ambulance dispatched, lane blocked, emergency signs activated..."></textarea>
+
+            <button type="submit" class="primary-btn">Send Alert + Generate Review</button>
+          </form>
+
+          <article class="review-card">
+            <h3>Detailed Accident Review Summary</h3>
+            <ul id="reviewList" class="review-list">
+              <li>Date/Time: --</li>
+              <li>Place: --</li>
+              <li>Damage Classification: --</li>
+              <li>Preventive Measures: --</li>
+              <li>Remedial Measures: --</li>
+              <li>Footage Attachment: --</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="section glass-card" id="analyticsSection">
+        <div class="section-head">
+          <h2>Accident Summary Analytics</h2>
+          <span class="badge">Historical + Simulation Insights</span>
+        </div>
+        <div class="chart-grid">
+          <canvas id="severityChart"></canvas>
+          <canvas id="survivalChart"></canvas>
+        </div>
+        <div class="table-wrap">
+          <table id="observationTable">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Location</th>
+                <th>Severity</th>
+                <th>Estimated Damage</th>
+                <th>Survival Rate %</th>
+                <th>Observation</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>Optimized for responsive control rooms and mobile field units.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
