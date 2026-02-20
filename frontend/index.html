@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Accident Prevention System</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <div class="bg-glow"></div>
+    <header class="topbar">
+      <h1>Accident Prevention System</h1>
+      <p>YOLOv5 + OpenCV Smart Collision Monitoring</p>
+    </header>
+
+    <main class="container">
+      <section class="card detection" id="detection">
+        <h2>1) Detection & Smart Road Monitoring</h2>
+        <p>Upload CCTV footage or historical simulation video for accident and speed-risk analysis.</p>
+
+        <form id="analyzeForm" class="upload-panel">
+          <label class="file-input">
+            <span>Select Video Feed</span>
+            <input type="file" name="video" id="videoInput" accept="video/*" required />
+          </label>
+          <div class="grid-two">
+            <label>
+              Camera Location
+              <input type="text" name="location" id="location" placeholder="Ex: NH-48 Junction A" required />
+            </label>
+            <label>
+              Simulation Mode
+              <select name="simulationMode" id="simulationMode">
+                <option value="live-upload">Live Upload</option>
+                <option value="historical">Historical Record Replay</option>
+              </select>
+            </label>
+          </div>
+          <button type="submit" id="analyzeBtn">Analyze Footage</button>
+        </form>
+
+        <div class="preview-wrap">
+          <video id="videoPreview" controls playsinline></video>
+          <div class="pulse-dot" aria-hidden="true"></div>
+        </div>
+
+        <div id="analysisResult" class="result hidden"></div>
+      </section>
+
+      <section class="card authorities" id="authorities">
+        <h2>2) Authority Alerts & Accident Review</h2>
+        <p>Trigger emergency alerts and generate detailed incident summaries with preventive/remedial actions.</p>
+
+        <form id="alertForm" class="grid-two">
+          <label>
+            Incident ID
+            <input type="text" id="incidentId" required />
+          </label>
+          <label>
+            Authority Contact
+            <input type="text" id="authorityContact" placeholder="Traffic HQ / EMS" required />
+          </label>
+          <label>
+            Preventive Measures
+            <textarea id="preventiveMeasures" rows="3" placeholder="Speed governors, warning signage, AI alert tuning"></textarea>
+          </label>
+          <label>
+            Remedial Measures
+            <textarea id="remedialMeasures" rows="3" placeholder="Ambulance dispatch, lane closure, debris removal"></textarea>
+          </label>
+          <button type="submit">Notify Authorities</button>
+        </form>
+
+        <div id="alertStatus" class="result hidden"></div>
+      </section>
+
+      <section class="card analytics">
+        <h2>Accident Summary Analytics</h2>
+        <div class="chart-grid">
+          <canvas id="accidentTypeChart"></canvas>
+          <canvas id="survivalRateChart"></canvas>
+        </div>
+
+        <div class="table-wrap">
+          <table id="reportsTable">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Date/Time</th>
+                <th>Place</th>
+                <th>Severity</th>
+                <th>Survival %</th>
+                <th>Measures</th>
+                <th>Footage</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <small>Optimized for responsive monitoring centers and mobile emergency teams.</small>
+    </footer>
+
+    <script src="js/app.js" type="module"></script>
+  </body>
+</html>
